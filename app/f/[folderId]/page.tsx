@@ -10,7 +10,16 @@ interface FolderPageProps {
 
 export default async function FolderPage({ params }: FolderPageProps) {
   const { folderId } = await params;
-  const data = await getFolderWithContents(folderId);
+  let data;
+  try {
+    data = await getFolderWithContents(folderId);
+  } catch (error: any) {
+    // Handle database connection or table errors
+    if (error?.code === 'P2021' || error?.code === '42P01' || error?.code === 'P1001') {
+      notFound();
+    }
+    throw error;
+  }
 
   if (!data) {
     notFound();
