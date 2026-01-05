@@ -1,6 +1,8 @@
 import { getFolderWithContents } from "@/lib/files";
 import { FileBrowser } from "@/components/files/file-browser";
 
+export const dynamic = 'force-dynamic';
+
 export default async function HomePage() {
   const data = await getFolderWithContents(null);
 

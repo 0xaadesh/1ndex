@@ -4,6 +4,8 @@ import { getFolderWithContents } from "@/lib/files";
 import { AdminFileBrowser } from "@/components/files/admin-file-browser";
 import { AdminLayout } from "@/components/admin/admin-layout";
 
+export const dynamic = 'force-dynamic';
+
 interface AdminFolderPageProps {
   params: Promise<{ folderId: string }>;
 }

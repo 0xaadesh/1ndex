@@ -2,6 +2,8 @@ import { getFolderWithContents } from "@/lib/files";
 import { FileBrowser } from "@/components/files/file-browser";
 import { notFound } from "next/navigation";
 
+export const dynamic = 'force-dynamic';
+
 interface FolderPageProps {
   params: Promise<{ folderId: string }>;
 }
